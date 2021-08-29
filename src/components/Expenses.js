@@ -18,11 +18,12 @@ function Expenses(props) {
       />
       {props.items.map((expense) => (
         <ExpenseItem
+          key={expense.id}
           title={expense.title}
           date={expense.date}
           amount={expense.amount}
         ></ExpenseItem>
-      ))}{" "}
+      ))}
       ; ;
     </Card>
   );
