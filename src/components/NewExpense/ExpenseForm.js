@@ -17,12 +17,13 @@ const ExpenseForm = (props) =>{
         setEnteredDate(event.target.value) ; // updating the date as soon as it gets changed
     }
 
+
     // for saving the new expense data when the form is submitted
     const formSubmitHandler = (event) => {
         event.preventDefault() ; //in this case ,used to prevent browser reload or refresh on submitting the form
         const newData = {
             title : enteredTitle , 
-            amount : enteredAmount , 
+            amount : parseFloat(enteredAmount) , 
             date : new Date(enteredDate) 
         } ; 
         props.onSaveExpenseData(newData) ; 
@@ -30,7 +31,7 @@ const ExpenseForm = (props) =>{
     }
 
     return (
-        <form onSubmit = {formSubmitHandler }>
+        <form onSubmit = {formSubmitHandler } >
             <div className = "new-expense__controls">
                 <div className = "new-expense__control">
                     <label>Title</label>
@@ -46,9 +47,13 @@ const ExpenseForm = (props) =>{
                 </div>
             </div>
 
-            <div className = "new-expense__actions">
+
+            <div className = "new-expense__actions">  
+                <button type = "button" onClick = {props.onCancel} > Cancel </button>
                 <button type = "submit">Add expense</button>
             </div>
+            
+                
         </form>
     )
 } 

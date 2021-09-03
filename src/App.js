@@ -1,7 +1,8 @@
-import React , {useState } from "react" ; 
+import React, { useState } from "react";
 
-import Expenses from "./components/Expenses" ; 
-import NewExpense from "./components/NewExpense/NewExpense" ;
+import Expenses from "./components/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+import "./components/NewExpense/NewExpense.css"
 
 const INITIAL_EXPENSES = [
   {
@@ -26,17 +27,17 @@ const INITIAL_EXPENSES = [
 ];
 
 function App() {
-  const [expenses , setExpenses] = useState(INITIAL_EXPENSES) ; 
+  const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+  const [clicked, setClicked] = useState(0);
+  const addExpenseDataHandler = (newExpenseData) => {
+    setExpenses([...expenses, newExpenseData]);
+  };
 
-  const addExpenseDataHandler = (newExpenseData) =>{
-    setExpenses([ ...expenses , newExpenseData]) ; 
-  }
+
   return (
     <div>
-      
-      <NewExpense onAddNewExpenseData = {addExpenseDataHandler} />
-      <Expenses items = {expenses}></Expenses>
-
+      <NewExpense onAddNewExpenseData={addExpenseDataHandler} />
+      <Expenses items={expenses}></Expenses>
     </div>
   );
 }
