@@ -40,10 +40,3 @@ const NewExpense = (props) => {
 
 export default NewExpense;
 
-
-
-      {/* {clicked === 0 ? (
-        <button onClick = {startEditingHandler}>Add new expense</button>
-      ) : (
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-      )} */}
